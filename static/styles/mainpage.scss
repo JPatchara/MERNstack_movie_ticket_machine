@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+}
+[class="menuBar"] {
+    position: relative;
+    clear: both;
+    background-color: dimgray;
+    left: 0vw;
+    width: 100%;
+    min-height: 10vh;
+    max-height: 50vh;   
+}
+[class="movieIcon"] {
+    color: #ffd000;
+    font-size: 4.5vmin;
+    text-shadow: 2px 1px #fff6cc; 
+    margin-left: auto;
+    margin-right: auto;
+}
+[class="moviesList"] {
+    position: relative;
+    display: flex;
+    clear: both;
+    overflow: scroll;
+    background-color: rgb(255, 255, 255);
+    top: 4vh;
+    margin: auto auto;
+    min-height: 1vh;
+    width: 94vw;
+    height: auto;
+}
+[class="listContainer"] {
+    position: relative;
+    margin-top: 2vh;
+    margin-left: 15vw;
+    width: 65vw;
+    height: 20vh;
+}
