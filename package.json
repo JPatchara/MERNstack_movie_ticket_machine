@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node ssr-server.js",
+    "dev": "node ./server/server.js",
     "build": "next build",
     "start": "next start",
     "export": "next export"
@@ -14,9 +14,12 @@
   "license": "ISC",
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
     "express": "^4.16.4",
-    "mongodb": "^3.2.3",
-    "next": "^8.0.4",
+    "mongoose": "^5.5.2",
+    "next": "^8.1.0",
     "next-images": "^1.1.1",
     "node-sass": "^4.11.0",
     "react": "^16.8.6",

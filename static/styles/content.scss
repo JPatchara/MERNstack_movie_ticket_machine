@@ -1,0 +1,35 @@
+[class="listBG"] {
+    position: relative;
+    display: flex;
+    background-color: rgba(117, 174, 187, 0.34);
+    height: 32vmin ;
+    
+}
+[class="divImage"] {
+    position: relative;
+    display: flex;
+    float: top;
+    top: 3vmin;
+    left: 2vw;
+    width: 18.5vmin;
+    height: 26vmin;
+}
+[class="listImage"] {
+    position: relative;
+    width: 18.5vmin;
+    height: 26vmin;
+    max-width: 18.5vmin;
+    max-height: 26vmin;
+}
+[class="btn"] {
+    margin-top: 6vh;
+    margin-left: 28vw;
+}
+[class="icon"] {
+    margin-right: 2vmin;
+}
+[class="content"] {
+    position: relative;
+    margin-top: 1.2vh;
+    margin-left: 8vmin;
+}

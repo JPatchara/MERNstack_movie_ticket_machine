@@ -2,7 +2,7 @@ import Head from 'next/head'
 import '../static/styles/background.scss'
 
 const Background = () => (
-    <div class="background">
+    <div className="background">
         <Head>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <meta charSet="utf-8" />

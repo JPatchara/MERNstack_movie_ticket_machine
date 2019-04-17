@@ -1,56 +1,76 @@
 import React from 'react'
-import "../static/styles/mainpage.scss";
-import Background from "../components/Background";
-import { Menu, Dropdown, Button } from "semantic-ui-react";
+import '../static/styles/mainpage.scss'
+import Background from '../components/background'
+import MovieContent from '../components/content'
+import { Menu, Dropdown } from 'semantic-ui-react'
+import axios from 'axios'
 
 class Mainpage extends React.Component {
 
-    state = {}
+    constructor(props) {
+        super(props);
+        this.state = { movieData: [] };
+    }
+    
+    componentDidMount(){
+        axios.get('http://localhost:3000/api/get/ASCName')
+        .then(response => {
+            this.setState({ movieData: response.data });
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
+    }
 
-    handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+    moviesListing(){
+        return this.state.movieData.map(function(object, i){
+            return <MovieContent obj={object} key={i}/>
+        })
+    }
 
     render() {
-        const { value, activeItem  } = this.state
+        const { value } = this.state
 
         return (
             <div>
                 <Background />
                 <div>
-                <div class="menuBar">
-                    <Menu stackable style={menuBG}>
-                        <Menu.Item>
-                            <h3 class="movieIcon">MOVIES</h3>
-                        </Menu.Item>
-                        <Menu.Item style={gap}/>
-                        <Dropdown
-                            style={dropdownSearch}
-                            placeholder="Search and select your movie"
-                            fluid
-                            search
-                            selection
-                            options={moviesSearch}
-                            value={value}
-                            // onChange={this.onChangeName}
-                        />
-                        <Menu.Item/>
-                        <Menu.Item style={gap}/>
-                        <Dropdown
-                            style={dropdownSort}
-                            placeholder="Sort by"
-                            fluid
-                            search
-                            selection
-                            options={sortOptions}
-                            value={value}
-                            // onChange={this.onChangeName}
-                        />
-                        <Menu.Item style={gap}/>
-                    </Menu>
-                </div>
-                <div class="moviesList">
-                    <div class="listContainer">
+                    <div className="menuBar">
+                        <Menu stackable style={menuBG}>
+                            <Menu.Item>
+                                <h3 className="movieIcon">MOVIES</h3>
+                            </Menu.Item>
+                            <Menu.Item style={gap}/>
+                            <Dropdown
+                                style={dropdownSearch}
+                                placeholder="Search and select your movie"
+                                fluid
+                                search
+                                selection
+                                options={moviesSearch}
+                                value={value}
+                                // onChange={this.onChangeName}
+                            />
+                            <Menu.Item/>
+                            <Menu.Item style={gap}/>
+                            <Dropdown
+                                style={dropdownSort}
+                                placeholder="Sort by"
+                                fluid
+                                search
+                                selection
+                                options={sortOptions}
+                                value={value}
+                                // onChange={this.onChangeName}
+                            />
+                            <Menu.Item style={gap}/>
+                        </Menu>
                     </div>
-                </div>
+                    <div className="moviesList">
+                        <div className="listContainer">
+                            {this.moviesListing()}
+                        </div>
+                    </div>
                 </div>
             </div>
         )
