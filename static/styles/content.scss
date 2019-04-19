@@ -2,16 +2,17 @@
     position: relative;
     display: flex;
     background-color: rgba(117, 174, 187, 0.34);
-    height: 32vmin ;
-    
+    min-height: 32vmin;
+    height: auto;
+    margin-top: 2vmin;
 }
 [class="divImage"] {
     position: relative;
     display: flex;
     float: top;
-    top: 3vmin;
-    left: 2vw;
-    width: 18.5vmin;
+    margin-top: 3vmin;
+    margin-left: 4vw;
+    width: 30%;
     height: 26vmin;
 }
 [class="listImage"] {
@@ -22,14 +23,36 @@
     max-height: 26vmin;
 }
 [class="btn"] {
-    margin-top: 6vh;
-    margin-left: 28vw;
-}
-[class="icon"] {
-    margin-right: 2vmin;
+    position: absolute;
+    bottom: 2vh;
+    margin-right: 1.5vmin;
 }
 [class="content"] {
     position: relative;
-    margin-top: 1.2vh;
-    margin-left: 8vmin;
+    width: 50%;
+    margin-left: 2vmin;
+}
+[class="name"] {
+    display: block;
+    margin-top: 3.2vmin;
+    font-size: 3vmin;
+    text-align: left;
+}
+[class="tagline"] {
+    display: block;
+    margin-top: 2vmin;
+    text-align: left;
+    font-size: 2vmin;
+}
+[class="priceNdate"] {
+    display: block;
+    margin-top: 4vmin;
+    text-align: left;
+    font-size: 2vmin;
+}
+[class="wrapBTN"] {
+    position: relative;
+    float: right;
+    width: 30%;
+    right: 0vmin;
 }

@@ -1,7 +1,7 @@
 import '../static/styles/welcome.scss'
 import { Button } from 'semantic-ui-react'
 import logo from '../static/images/CinemaLogo.png'
-import Background from '../components/Background'
+import Header from '../components/header'
 import Router from 'next/router'
 
 const handleClickToMainpage = () => Router.push({
@@ -9,8 +9,8 @@ const handleClickToMainpage = () => Router.push({
 })
 
 const App = () => (
-    <div>
-        <Background/>
+    <div className="backgroundWC">
+        <Header />
         <div className="welcome">
             <h1>Movie Ticket Machine</h1>
             <img className="logo" src={logo} alt="" />

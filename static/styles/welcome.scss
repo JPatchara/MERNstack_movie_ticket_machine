@@ -5,6 +5,16 @@
     margin-left: auto;
     margin-right: auto;
 }
+[class="backgroundWC"] {
+    position: absolute;
+    background-attachment: fixed;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    background-color: rgb(39, 36, 36);
+}
 h1 {
     position: relative;
     display: flex;
@@ -17,7 +27,7 @@ h1 {
     font-style: italic;
     font-size: 6vmin
 }
-img {
+[class="logo"] {
     position: relative;
     display: flex;
     top: 16vh;

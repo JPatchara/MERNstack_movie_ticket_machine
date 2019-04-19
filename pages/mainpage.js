@@ -1,6 +1,6 @@
 import React from 'react'
 import '../static/styles/mainpage.scss'
-import Background from '../components/background'
+import Header from '../components/header'
 import MovieContent from '../components/content'
 import { Menu, Dropdown } from 'semantic-ui-react'
 import axios from 'axios'
@@ -9,13 +9,15 @@ class Mainpage extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { movieData: [] };
+        this.state = { 
+            movieData: []
+        }
     }
-    
+
     componentDidMount(){
         axios.get('http://localhost:3000/api/get/ASCName')
         .then(response => {
-            this.setState({ movieData: response.data });
+            this.setState({ movieData: response.data })
         })
         .catch(function (error) {
             console.log(error);
@@ -32,8 +34,8 @@ class Mainpage extends React.Component {
         const { value } = this.state
 
         return (
-            <div>
-                <Background />
+            <div className="backgroundMP">
+                <Header />
                 <div>
                     <div className="menuBar">
                         <Menu stackable style={menuBG}>
@@ -47,7 +49,7 @@ class Mainpage extends React.Component {
                                 fluid
                                 search
                                 selection
-                                options={moviesSearch}
+                                options={moviesName}
                                 value={value}
                                 // onChange={this.onChangeName}
                             />
@@ -67,9 +69,9 @@ class Mainpage extends React.Component {
                         </Menu>
                     </div>
                     <div className="moviesList">
-                        <div className="listContainer">
+                        <table className="listContainer">
                             {this.moviesListing()}
-                        </div>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -77,19 +79,20 @@ class Mainpage extends React.Component {
     }
 }
 
-var moviesSearch = [{
-    text: 'Movie01',
-    value: 'Movie01'
-},{
-    text: 'Movie02',
-    value: 'Movie02'
-},{
-    text: 'Movie03',
-    value: 'Movie03'
-},{
-    text: 'Movie04',
-    value: 'Movie04'
-}]
+var moviesSearch = []
+var moviesName = []
+axios.get('http://localhost:3000/api/get/moviesName')
+.then(response => {
+    moviesSearch = response.data
+    moviesSearch.forEach(function(object, i) {
+        console.log(object.name)
+        moviesName[i] = {text:object.name, value:object.name}
+    })
+})
+.catch(function (error) {
+    console.log(error);
+})
+
 const sortOptions = [{
     text: 'Date & Time(Older)',
     value: 'Date & Time(Older)'

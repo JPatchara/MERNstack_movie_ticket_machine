@@ -1,6 +1,16 @@
 * {
     box-sizing: border-box;
 }
+[class="backgroundMP"] {
+    position: absolute;
+    background-attachment: fixed;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    background-color: rgb(39, 36, 36);
+}
 [class="menuBar"] {
     position: relative;
     clear: both;
@@ -25,15 +35,16 @@
     background-color: rgb(255, 255, 255);
     top: 4vh;
     margin: auto auto;
-    min-height: 1vh;
     width: 94vw;
-    height: auto;
+    height: 82vh;
+    min-height: 15vh;
 }
 [class="listContainer"] {
     position: relative;
-    margin-top: 2vh;
-    margin-left: 15vw;
-    width: 65vw;
-    height: 77vh;
-    max-height: 85vh;
+    margin: auto auto;
+    width: auto;
+    height: auto;
+    min-width: 60vw;
+    min-height: 77vh;
+    border-collapse: collapse;
 }
