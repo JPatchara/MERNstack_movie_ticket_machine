@@ -10,11 +10,13 @@ class Mainpage extends React.Component {
     constructor(props) {
         super(props);
         this.state = { 
-            movieData: []
+            movieData: [],
+            selection: false,
+            list_count: 0
         }
     }
 
-    componentDidMount(){
+    componentDidMount() {
         axios.get('http://localhost:3000/api/get/ASCName')
         .then(response => {
             this.setState({ movieData: response.data })
@@ -24,10 +26,65 @@ class Mainpage extends React.Component {
         })
     }
 
-    moviesListing(){
-        return this.state.movieData.map(function(object, i){
-            return <MovieContent obj={object} key={i}/>
+    moviesListing() {
+        if( this.state.selection === false) {
+            return this.state.movieData.map(function(object, i){
+                return <MovieContent obj={object} key={i}/>
+            })
+        } else {
+            this.onChangeName
+        }
+    }
+
+    onChangeName = (e, { value }) => {  
+        this.unsubscribe = axios.get('http://localhost:3000/api/get/movie/'+value)
+        .then(response => {
+            this.setState({ movieData: [response.data] })
         })
+        .catch(function (error) {
+            console.log(error);
+        })  
+    }
+
+    onChangeSortby = (e, { value }) => {
+
+        if (value  === 'Price(Lower)') {
+            this.unsubscribe = axios.get('http://localhost:3000/api/get/ASCPrice')
+            .then(response => {
+                this.setState({ movieData: response.data })
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+        } else if (value  === 'Price(Higher)') {
+            this.unsubscribe = axios.get('http://localhost:3000/api/get/DESCPrice')
+            .then(response => {
+                this.setState({ movieData: response.data })
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+        } else if (value  === 'Date & Time(Older)') {
+
+        } else if (value  === 'Date & Time(Newer)') {
+
+        } else if (value  === 'none') {
+            this.unsubscribe = axios.get('http://localhost:3000/api/get/ASCName')
+            .then(response => {
+                this.setState({ movieData: response.data })
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+        } else {             
+            this.unsubscribe = axios.get('http://localhost:3000/api/get/ASCName')
+            .then(response => {
+                this.setState({ movieData: [response.data] })
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+        }
     }
 
     render() {
@@ -51,7 +108,7 @@ class Mainpage extends React.Component {
                                 selection
                                 options={moviesName}
                                 value={value}
-                                // onChange={this.onChangeName}
+                                onChange={this.onChangeName}
                             />
                             <Menu.Item/>
                             <Menu.Item style={gap}/>
@@ -63,14 +120,15 @@ class Mainpage extends React.Component {
                                 selection
                                 options={sortOptions}
                                 value={value}
-                                // onChange={this.onChangeName}
+                                onChange={this.onChangeSortby}
                             />
                             <Menu.Item style={gap}/>
                         </Menu>
                     </div>
                     <div className="moviesList">
                         <table className="listContainer">
-                            {this.moviesListing()}
+                            {/* {this.moviesListing()} */}
+                            <MovieContent data={this.state.movieData}/>
                         </table>
                     </div>
                 </div>
@@ -85,7 +143,6 @@ axios.get('http://localhost:3000/api/get/moviesName')
 .then(response => {
     moviesSearch = response.data
     moviesSearch.forEach(function(object, i) {
-        console.log(object.name)
         moviesName[i] = {text:object.name, value:object.name}
     })
 })

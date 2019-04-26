@@ -18,29 +18,37 @@ class MovieContent extends React.Component {
 
     render() {
         return (
-            <tbody className="listBG">
-                <th className="divImage">
-                    <img className="listImage" src={this.props.obj.image} alt=""/>
-                </th>
-                <th className="content">
-                    <tr className="name">{this.props.obj.name}</tr>
-                    <tr className="tagline">
-                        <span className="cinema">{this.props.obj.tagline}</span>
-                    </tr>
-                    <tr className="priceNdate">
-                        <p>Price:&nbsp;&nbsp;&nbsp;&nbsp;{this.props.obj.price}&nbsp;&nbsp;&nbsp;Baht</p>
-                        {/* <p>Available on:&nbsp;&nbsp;{this.props.obj.date}</p> */}
-                    </tr>
-                </th>
-                <th className="wrapBTN">
-                    <tr className="btn">
-                        <Button className="ui right floated primary button" style={btn} onClick={this.handleClickToDetailspage}>
-                            <Icon className='cart' style={icon}/>
-                            Buy tickets
-                        </Button>
-                    </tr>
-                </th>
-            </tbody>
+            <div>
+                {this.props.data.map(data => (
+                    <tbody className="listBG" key={data.id}>
+                        <th className="divImage">
+                            {/* <img className="listImage" src={this.props.obj.image} alt=""/> */}
+                            <img className="listImage" src={data.image} alt=""/>
+                        </th>
+                        <th className="content">
+                            {/* <tr className="name">{this.props.obj.name}</tr> */}
+                            <tr className="name">{data.name}</tr>
+                            <tr className="tagline">
+                                {/* <span className="cinema">{this.props.obj.tagline}</span> */}
+                                <span className="cinema">{data.tagline}</span>
+                            </tr>
+                            <tr className="priceNdate">
+                                {/* <p>Price:&nbsp;&nbsp;&nbsp;&nbsp;{this.props.obj.price}&nbsp;&nbsp;&nbsp;Baht</p> */}
+                                <p>Price:&nbsp;&nbsp;&nbsp;&nbsp;{data.price}&nbsp;&nbsp;&nbsp;Baht</p>
+                                {/* <p>Available on:&nbsp;&nbsp;{this.props.obj.date}</p> */}
+                            </tr>
+                        </th>
+                        <th className="wrapBTN">
+                            <tr className="btn">
+                                <Button className="ui right floated primary button" style={btn} onClick={this.handleClickToDetailspage}>
+                                    <Icon className='cart' style={icon}/>
+                                    Buy tickets
+                                </Button>
+                            </tr>
+                        </th>
+                    </tbody>
+                ))}
+            </div>
         )
     }
 }

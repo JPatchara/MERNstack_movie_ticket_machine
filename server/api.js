@@ -31,6 +31,14 @@ router.get('/get/moviesName', function(req, res, report) {
         res.json(err.message)
     })
 })
+//----Get a movie data with selection----//
+router.get('/get/movie/:name', function(req, res, report) {
+    moviesData.find({name: req.params.name}, req.body).then(function() {
+        moviesData.findOne({name: req.params.name}).then(function(movies) {
+            res.send(movies)
+        }).catch(report)
+    }).catch(report)
+})
 //----Add a movie----//
 router.post('/post/movies', function(req, res, report) {
     moviesData.create(req.body).then(function(movies) {
