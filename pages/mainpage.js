@@ -91,47 +91,44 @@ class Mainpage extends React.Component {
         const { value } = this.state
 
         return (
-            <div className="backgroundMP">
-                <Header />
-                <div>
-                    <div className="menuBar">
-                        <Menu stackable style={menuBG}>
-                            <Menu.Item>
+            <div className="mainpageBG">
+                <Header/>
+                    <header className="mainpageBar">
+                        <ul>
+                            <li>
                                 <h3 className="movieIcon">MOVIES</h3>
-                            </Menu.Item>
-                            <Menu.Item style={gap}/>
-                            <Dropdown
-                                style={dropdownSearch}
-                                placeholder="Search and select your movie"
-                                fluid
-                                search
-                                selection
-                                options={moviesName}
-                                value={value}
-                                onChange={this.onChangeName}
-                            />
-                            <Menu.Item/>
-                            <Menu.Item style={gap}/>
-                            <Dropdown
-                                style={dropdownSort}
-                                placeholder="Sort by"
-                                fluid
-                                search
-                                selection
-                                options={sortOptions}
-                                value={value}
-                                onChange={this.onChangeSortby}
-                            />
-                            <Menu.Item style={gap}/>
-                        </Menu>
-                    </div>
+                            </li>
+                            <li>
+                                <Dropdown
+                                    style={dropdownSearch}
+                                    placeholder="Search and select your movie"
+                                    fluid
+                                    search
+                                    selection
+                                    options={moviesName}
+                                    value={value}
+                                    onChange={this.onChangeName}
+                                />
+                            </li>
+                            <li>
+                                <Dropdown
+                                    style={dropdownSort}
+                                    placeholder="Sort by"
+                                    fluid
+                                    search
+                                    selection
+                                    options={sortOptions}
+                                    value={value}
+                                    onChange={this.onChangeSortby}
+                                />
+                            </li>
+                        </ul>
+                    </header>
                     <div className="moviesList">
                         <table className="listContainer">
-                            {/* {this.moviesListing()} */}
                             <MovieContent data={this.state.movieData}/>
                         </table>
                     </div>
-                </div>
             </div>
         )
     }
@@ -167,29 +164,23 @@ const sortOptions = [{
     value: 'none'
 }]
 
-const menuBG = {
-    backgroundColor: "dimgray"
-}
-const gap = {
-    visibility: "hidden"
-}
 const dropdownSearch = {
-    display: "table-cell",
     margin: "auto auto",
     width: "50vw",
     maxWidth: "70vw",
     height: "5vh",
     textAlign: "center",
-    border: "dotted"
+    border: "dotted",
+    fontSize: "2vmin"
 }
 const dropdownSort = {
-    display: "table-cell",
     margin: "auto auto",
     width: "25vw",
     maxWidth: "50vw",
     height: "5vh",
     textAlign: "center",
-    border: "dotted"
+    border: "dotted",
+    fontSize: "2vmin"
 }
 
 export default Mainpage

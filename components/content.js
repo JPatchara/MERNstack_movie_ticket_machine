@@ -1,6 +1,5 @@
 import React from 'react'
 import '../static/styles/content.scss'
-import Header from '../components/header'
 import { Button, Icon} from 'semantic-ui-react'
 import Router from 'next/router'
 
@@ -19,34 +18,33 @@ class MovieContent extends React.Component {
     render() {
         return (
             <div>
-                {this.props.data.map(data => (
-                    <tbody className="listBG" key={data.id}>
-                        <th className="divImage">
-                            {/* <img className="listImage" src={this.props.obj.image} alt=""/> */}
-                            <img className="listImage" src={data.image} alt=""/>
-                        </th>
-                        <th className="content">
-                            {/* <tr className="name">{this.props.obj.name}</tr> */}
-                            <tr className="name">{data.name}</tr>
-                            <tr className="tagline">
-                                {/* <span className="cinema">{this.props.obj.tagline}</span> */}
-                                <span className="cinema">{data.tagline}</span>
-                            </tr>
-                            <tr className="priceNdate">
-                                {/* <p>Price:&nbsp;&nbsp;&nbsp;&nbsp;{this.props.obj.price}&nbsp;&nbsp;&nbsp;Baht</p> */}
+                {this.props.data.map((data, key) => (
+                    <div key={key} className="listBG">
+                        <div className="divImage">
+                            <div className="borderImage">
+                                <img className="listImage" src={data.image} alt=""/>
+                                <span/><span/><span/><span/>
+                            </div>
+                        </div>
+                        <div className="content">
+                            <div className="name">{data.name}</div>
+                            <div className="tagline">
+                                <p>{data.tagline}</p>
+                            </div>
+                            <div className="priceNdate">
                                 <p>Price:&nbsp;&nbsp;&nbsp;&nbsp;{data.price}&nbsp;&nbsp;&nbsp;Baht</p>
-                                {/* <p>Available on:&nbsp;&nbsp;{this.props.obj.date}</p> */}
-                            </tr>
-                        </th>
-                        <th className="wrapBTN">
-                            <tr className="btn">
+                                <p>Available on:&nbsp;&nbsp;{data.date}</p>
+                            </div>
+                        </div>
+                        <div className="wrapBTN">
+                            <div className="btn">
                                 <Button className="ui right floated primary button" style={btn} onClick={this.handleClickToDetailspage}>
                                     <Icon className='cart' style={icon}/>
                                     Buy tickets
                                 </Button>
-                            </tr>
-                        </th>
-                    </tbody>
+                            </div>
+                        </div>
+                    </div>
                 ))}
             </div>
         )
