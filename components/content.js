@@ -7,15 +7,15 @@ class MovieContent extends React.Component {
 
     constructor(props) {
         super(props)
-        this.state = { showModal: 0 }
+        this.state = { showing: 0 }
     }
 
-    getModalDT = value => {
-        this.setState({ showModal: value });
+    getDetails = value => {
+        this.setState({ showing: value })
     }
     
-    hideModalDT = value => {
-        this.setState({ showModal: 0 });
+    hideDetails = value => {
+        this.setState({ showing: 0 })
     }
 
     render() {
@@ -40,14 +40,14 @@ class MovieContent extends React.Component {
                             </div>
                         </div>
                         <div className="wrapBTN">
-                            <button className="btn" onClick={() => this.getModalDT(id+1)}>
+                            <button className="btn" onClick={() => this.getDetails(id+1)}>
                                 <Icon className='cart' style={icon}/>
                                 Buy tickets
                             </button>
                         </div>
                         <Detailspage
-                            show={this.state.showModal === id+1}
-                            onHide={() => this.hideModalDT(id+1)}
+                            show={this.state.showing === id+1}
+                            onHide={() => this.hideDetails(id+1)}
                             name={data.name} image={data.image}
                             tagline={data.tagline}
                             price={data.price}

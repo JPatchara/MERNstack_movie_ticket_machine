@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
+import Header from '../../components/header.js'
+import '../../static/styles/paymentpage.scss'
 import 'semantic-ui-react'
-import Icon from 'semantic-ui-react'
+import { Icon } from 'semantic-ui-react'
 
-class Paymentpage extends Component {
+var paid_forMailing = 0
+
+class Paymentpage extends React.Component {
     
     constructor(props) {
         super(props)
@@ -22,7 +26,7 @@ class Paymentpage extends Component {
 
     AmountToChange(amount, change) {
         if(amount === 0) {
-            return [];
+            return []
         } else {
             if(amount >= change[0]) {
                 var left = (amount - change[0])
@@ -54,8 +58,6 @@ class Paymentpage extends Component {
             // find number of bills and coins for the change
             this.setState({bills_and_coins: this.AmountToChange(this.state.total_change, [1000, 500, 100, 50, 20, 10, 5, 2, 1])})
             cash = this.AmountToChange(changes, [1000, 500, 100, 50, 20, 10, 5, 2, 1])
-            // this.setState({ bills_and_coins: bills_and_coins})
-            // console.log(cash)
 
             for(let i = 0; i < cash.length; i++) {
 
@@ -92,32 +94,26 @@ class Paymentpage extends Component {
         return (
             <React.Fragment>
                 {this.props.show && (
-                <div className='bg' style={paymentBG}>
-                    <div className="modal" style={paymentModal}>
-                        <div className="content" style={paymentContent}>
-                            <div className="conclusion">
-                                <p style={ccsName}>You are buying ticket for " {this.props.name} ".</p>
-                                <p style={ccsPrice}>
-                                    <Icon className='payment'/>&nbsp;
-                                    Total price is &nbsp;&nbsp;&nbsp;
-                                    {this.props.total}&nbsp;&nbsp;&nbsp; Baht.
-                                </p>
-                                <div style={paymentInputBG}>
-                                    <p style={paymentInputText}>Please tab your payment here:</p>
-                                    <input style={paymentInput} type="number" 
-                                    pattern="[0-9]" step="1" min="0" ref="paid" placeholder="0.00"/>
-                                </div>
-                            </div>
+                <div className="backgroundPM">
+                    <Header />
+                    <div className="contentPM">
+                        <p className="ccsName">You are buying ticket for " {this.props.name} ".</p>
+                        <p className="ccsPrice">
+                            <Icon className='payment'/>&nbsp;
+                            Total price is &nbsp;&nbsp;&nbsp;
+                            {this.props.total}&nbsp;&nbsp;&nbsp; Baht.
+                        </p>
+                        <div className="paymentInputBG">
+                            <p className="paymentInputText">Please tab your payment here:</p>
+                            <input className="paymentInput" type="number" 
+                            pattern="[0-9]" step="1" min="0" ref="paid" placeholder="0.00"/>
                         </div>
-                    <button className="ui blue button" style={submitBTN}
-                        onClick={this.ChangeCalculation}> 
-                        <Icon className='money bill alternate'/>
-                        Submit
-                    </button>
-                    <button class="ui red button" style={backBTN} 
-                        onClick={this.props.onClose}> Back
-                    </button>
-
+                        <button className="submitBTN" onClick={this.ChangeCalculation}> 
+                            <Icon className='money bill alternate'/>
+                            Submit
+                        </button>
+                        <button class="backBTN" onClick={this.props.onHide}>Back</button>
+                    </div>
                     {/* <EndProcessModal show={this.state.submit} bNc={this.state.bills_and_coins}
                         totalChange={this.state.total_change} numC={this.state.num_coins}
                         numB={this.state.num_bills} bills={this.state.bills}
@@ -125,9 +121,10 @@ class Paymentpage extends Component {
                     >
                     </EndProcessModal> */}
                 </div>
-            </div>
-            )}
+                )}
             </React.Fragment>
         )
     }
 }
+
+export default Paymentpage

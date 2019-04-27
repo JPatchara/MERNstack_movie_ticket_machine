@@ -3,6 +3,7 @@ import '../../static/styles/detailspage.scss'
 import Header from '../../components/header.js'
 import { Icon } from 'semantic-ui-react'
 import Router from 'next/router'
+import Paymentpage from './paymentpage.js'
 
 var movie_name_forMailing = ""
 var num_of_ticket_forMailing = 0
@@ -24,18 +25,21 @@ class Detailspage extends React.Component {
         this.doDecrement = this.doDecrement.bind(this)
         this.doIncrement = this.doIncrement.bind(this)
         this.goCheckOut = this.goCheckOut.bind(this)
+        this.hidePayment = this.hidePayment.bind(this)
     }
 
     doDecrement() {
-        if(this.state.value > 0) {
+        if(this.state.value > 0 && this.state.value < 200) {
             this.setState({ value: this.state.value - 1 })
             this.setState({ totalPrice: (this.state.value-1)*this.props.price })      
+        } else {
+            window.alert("Exceed the ticket limit in the cinema.")
         }
     }
 
     doIncrement() {
         this.setState({ value: this.state.value + 1 })
-        this.setState({totalPrice: (this.state.value+1)*this.props.price})
+        this.setState({ totalPrice: (this.state.value+1)*this.props.price })
     }
 
     goCheckOut = () => {
@@ -52,8 +56,8 @@ class Detailspage extends React.Component {
         }
     }
 
-    handleClickToMainpage() { 
-        Router.push({ pathname: '/mainpage' })
+    hidePayment() {
+        this.setState({ checkOut: false })
     }
 
     render() {
@@ -97,6 +101,9 @@ class Detailspage extends React.Component {
                         </button>
                         <button className="cancelBTN" onClick={this.props.onHide}>Cancel</button>
                     </div>
+                    <Paymentpage show={this.state.checkOut} onHide={this.hidePayment}
+                        total={this.state.totalPrice} name={this.props.name} 
+                    />
                 </div>
                 )}
             </React.Fragment>

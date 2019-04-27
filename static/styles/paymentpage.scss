@@ -1,0 +1,139 @@
+[class="backgroundPM"] {
+    position: fixed;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    background: rgba(0,51,51,1);
+}
+[class="contentPM"] {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-flow: wrap;
+    box-sizing: border-box;
+    border-radius: 2vmin;
+    width: 50vw;
+    height: 55vh;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.5vmin;
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 1vmin 5vmin 1vmin 5vmin;
+}
+[class="ccsName"] {
+    position: relative;
+    display: block;
+    color: black;
+    font-size: 3.8vmin;
+    margin-right: 8vw;
+    margin-bottom: 0vh;
+}
+[class="ccsPrice"] {
+    position: relative;
+    display: block;
+    color: black;
+    top: -2.5vh;
+    font-size: 2.5vmin;
+    margin-right: 24vw;
+    margin-bottom: 0vh;
+}
+[class="submitBTN"] {
+    position: absolute;
+    background-color: #2185d0;
+    color: #fff;
+    font-size: 2vmin;
+    text-align: center;
+    float: right;
+    width: 18vmin;
+    height: 5vh;
+    right: 1vw;
+    bottom: 1.5vh;
+    margin-top: 7vmin;
+}
+[class="backBTN"] {
+    position: absolute;
+    text-align: center;
+    background-color: #db2828;
+    color: #fff;
+    font-size: 2vmin;
+    float: left;
+    left: 1vw;
+    bottom: 1.5vh;
+    width: 18vmin;
+    height: 5vh;
+    margin-top: 7vmin;
+    border-radius: 0.7vmin 0.7vmin 0.7vmin 3vmin;
+}
+[class="paymentInputBG"] {
+    position: relative;
+    display: block;
+    top: -4vh;
+    margin-left: 20vmin;
+    margin-right: 18vmin;
+    width: 45vmin;
+    overflow: hidden;
+    height: 20vmin;
+    background: rgba(0,153,255,0.7);
+    border-radius: 1vmin 6vmin 1vmin 6vmin;
+}
+[class="paymentInputText"] {
+    color: black;
+    font-size: 2vmin;
+    padding: 2vmin;
+}
+[class="paymentInput"] {
+    padding: 2vmin;
+    width: 15vw;
+    margin-left: 8vmin;
+    border-radius: 2vmin 0.2vmin 0.2vmin 2vmin;
+}
+@media (max-width: 768px){
+    [class="contentPM"] {
+        top: -8vh;
+        width: 68vw;
+        height: 50vh;
+        max-width: 80%;
+        max-height: 80%;
+    }
+    [class="ccsName"] {
+        top: 4vh;
+        margin-right: 0vw;
+        text-align: center;
+    }
+    [class="ccsPrice"] {
+        margin-right: 0vw;
+        text-align: center;
+    }
+    [class="paymentInputBG"] {
+        width: 50vw;
+        height: 16vh;
+        margin: 0;
+    }
+    [class="paymentInput"] {
+        width: 30vw;
+        margin-left: 10vw;
+        height: 6.5vh;
+    }
+    [class="submitBTN"] {
+        width: 48%;
+        height: 5vh;
+        right: 1.5vw;
+        bottom: 1.5vh;
+        margin-top: 7vmin;
+    }
+    [class="backBTN"] {
+        width: 48%;
+        left: 1.5vw;
+        bottom: 1.5vh;
+        height: 5vh;
+        margin-top: 7vmin;
+        border-radius: 0.7vmin 0.7vmin 0.7vmin 3vmin;
+    }
+}
