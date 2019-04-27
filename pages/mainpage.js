@@ -12,7 +12,7 @@ class Mainpage extends React.Component {
         this.state = { 
             movieData: [],
             selection: false,
-            list_count: 0
+            listCount: 0
         }
     }
 
@@ -26,18 +26,21 @@ class Mainpage extends React.Component {
         })
     }
 
-    moviesListing() {
-        if( this.state.selection === false) {
-            return this.state.movieData.map(function(object, i){
-                return <MovieContent obj={object} key={i}/>
-            })
-        } else {
-            this.onChangeName
-        }
-    }
+    // moviesListing() {
+    //     if( this.state.selection === false) {
+    //         return this.state.movieData.map(function(object, i){
+    //             return <MovieContent obj={object} key={i}/>
+    //         })
+    //     } else {
+    //         this.onChangeName
+    //     }
+    // }
 
-    onChangeName = (e, { value }) => {  
-        this.unsubscribe = axios.get('http://localhost:3000/api/get/movie/'+value)
+    onChangeName = (e, { value }) => {
+        this.setState({ value: value })
+        var selectionName = value
+        console.log(selectionName)
+        this.unsubscribe = axios.get('http://localhost:3000/api/get/movie/'+selectionName)
         .then(response => {
             this.setState({ movieData: [response.data] })
         })
@@ -47,8 +50,9 @@ class Mainpage extends React.Component {
     }
 
     onChangeSortby = (e, { value }) => {
-
-        if (value  === 'Price(Lower)') {
+        this.setState({ value: value })
+        var selectionSortby = value
+        if (selectionSortby  === 'Price(Lower)') {
             this.unsubscribe = axios.get('http://localhost:3000/api/get/ASCPrice')
             .then(response => {
                 this.setState({ movieData: response.data })
@@ -56,7 +60,7 @@ class Mainpage extends React.Component {
             .catch(function (error) {
                 console.log(error);
             })
-        } else if (value  === 'Price(Higher)') {
+        } else if (selectionSortby  === 'Price(Higher)') {
             this.unsubscribe = axios.get('http://localhost:3000/api/get/DESCPrice')
             .then(response => {
                 this.setState({ movieData: response.data })
@@ -64,11 +68,11 @@ class Mainpage extends React.Component {
             .catch(function (error) {
                 console.log(error);
             })
-        } else if (value  === 'Date & Time(Older)') {
+        } else if (selectionSortby  === 'Date & Time(Older)') {
 
-        } else if (value  === 'Date & Time(Newer)') {
+        } else if (selectionSortby  === 'Date & Time(Newer)') {
 
-        } else if (value  === 'none') {
+        } else if (selectionSortby  === 'none') {
             this.unsubscribe = axios.get('http://localhost:3000/api/get/ASCName')
             .then(response => {
                 this.setState({ movieData: response.data })

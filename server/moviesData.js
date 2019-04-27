@@ -8,6 +8,4 @@ const moviesModel = new schema({
     image: { type: String }
 })
 
-// moviesModel.set('collection', 'moviesList')
-
 module.exports = mongoose.model('movieslists', moviesModel)

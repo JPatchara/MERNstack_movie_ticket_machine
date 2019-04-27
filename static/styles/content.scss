@@ -4,11 +4,11 @@
     max-width: 65vw; 
     margin-top: 2vmin;
     background-color: rgba(117, 174, 187, 0.34);
+    border-radius: 3vmin 12vmin 1vmin 3vmin;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     flex-flow: wrap;
-   
 }
 [class="divImage"] {
     position: relative;
@@ -65,7 +65,7 @@ span{
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 102%;
     height: 100%;
     display: block;
     box-sizing: border-box;
@@ -83,7 +83,7 @@ span{
     content: '';
     position: absolute;
     width: 100%;
-    height: 0.4vmin;
+    height: 0.6vmin;
     background: #4b85f18a;
     animation: animate 2s linear infinite;
 }
@@ -110,26 +110,32 @@ span{
 } 
 [class="btn"] {
     position: relative;
-    list-style: none;
-    font-size: 2.2vmin;
+    background-color: rgb(42, 113, 206);
+    color: whitesmoke;
+    width: 10.5vw;
+    height: 5.4vh;
+    font-size: 2vmin;
+    text-align: center;
+    vertical-align: middle;
     top: 18vh;
-    left: 2vw;
+    left: 4vw;
+    border-radius: 1vmin;
 }
 [class="name"] {
-    list-style: none;
     display: block;
+    margin-top: 1vh;
     font-size: 3vmin;
     text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
 }
 [class="tagline"] {
-    list-style: none;
     display: block;
-    margin-top: 1.5vmin;
+    margin-top: 1.8vmin;
     text-align: left;
-    font-size: 2vmin;
+    font-size: 1.65vmin;
 }
 [class="priceNdate"] {
-    list-style: none;
+    font-style: oblique;
     display: block;
     margin-top: 2vmin;
     text-align: left;
@@ -148,14 +154,12 @@ span{
     }
     [class="btn"] {
         display: flex;
-        flex-direction: column;
-        font-size: 2.2vmin;
-        border-radius: 1vmin;
-        justify-content: center;
-        align-items: center;
-        min-width: 15vw;
-        min-height: 5vh;
-        margin: 4vh 0vw 0vh 4vw;
+        top: 1vh;
+        left: 0;
+        width: 18vw;
+        height: 4vh;
+        margin-left: auto;
+        margin-right: auto;
     }
     [class="name"] {
         margin-top: 2vmin;
@@ -175,10 +179,5 @@ span{
     [class="borderImage"]:before{
         left: -28%;
         width: 28%;
-    }
-    [class="btn"]{
-        top: 0vh;
-        left: 0vw;
-        margin-right: 4vw;
     }
 }

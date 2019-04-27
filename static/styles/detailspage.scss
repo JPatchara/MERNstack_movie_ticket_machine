@@ -1,6 +1,9 @@
 [class="backgroundDT"] {
-    position: absolute;
-    background-attachment: fixed;
+    position: fixed;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
     top: 0;
     left: 0;
@@ -11,48 +14,62 @@
 [class="contentDT"] {
     position: relative;
     display: flex;
-    top: 14vmin;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-flow: wrap;
     border-radius: 2vmin;
-    width: 85vmin;
-    max-height: 100%;
-    margin: auto auto;
+    width: 52vw;
+    height: 60vh;
+    margin-left: auto;
+    margin-right: auto;
     padding: 2.5vmin;
     box-shadow: 0 10px 30px 0 rgba(127, 127, 127, 0.3);
     background: rgba(255, 255, 255, 0.98);
+    border: dashed;
+    border-width: 1vmin;
+    border-color: rgb(255, 217, 0);
 }
 [class="divImg"] {
     position: relative;
-    float: top; 
-    bottom: 5vmin;
+    box-sizing: border-box;
+    top: 2vh;
 }
 [class="imgStyle"] {
-    position: relative;
     width: 27.5vmin;
     height: 38vmin;
-    top: 10vmin;
     box-shadow: 1vmin 1vmin;
+}
+[class="detailsArea"] {
+    position: relative;
+    box-sizing: border-box;
+}
+[class="info"] {
+    position: relative;
+    font-size: 3vmin;
+}
+[class="Name"] {
+    position: relative;
+    display: block;
+    font-size: 3vmin;
 }
 [class="Tagline"] {
     position: relative;
-    bottom: 36vmin;
-    margin-left: 32vmin;
+    display: block;
+    font-size: 2vmin;
 }
 [class="Price"] {
     position: relative;
+    display: block;
     color: black;
     width: 19vmin;
     font-size: 2.2vmin;
-    bottom: 30vmin;
-    margin-left: 32vmin;
     padding: 0.8vmin;
     background: rgba(102,204,255,0.6);
     border-radius: 1vmin;
 }
 [class="NumTicket"] {
-    position: relative;
-    margin-left: 32vmin;
-    margin-right: 18vmin;
-    margin-bottom: -20vmin;
+    display: block;
+    margin-top: 2vh;
     width: 50.6vmin;
     overflow: hidden;
     height: 20vmin;
@@ -61,20 +78,21 @@
     border-radius: 1vmin 0vmin 0vmin 6vmin;
 }
 [class="numText"]{
-    position: relative;
+    position: absolute;
     color: white;
     padding: 2vmin;
 }
 [class="numInput"] {
     position: relative;
-    left: 12vmin;
-    bottom: 1vmin;
+    display: flex;
+    top: 8vh;
+    left: 9vw;
 }
 [class="minusBtn"] {
     width: 5.5vmin;
     height: 6vmin;
     background: rgba(255,255,102,0.6);
-    border-radius: 2vmin 0.2vmin 0.2vmin 2vmin;
+    border-radius: 2vmin 0.4vmin 0.4vmin 2vmin;
 }
 [class="num"] {
     text-align: center;
@@ -86,36 +104,106 @@
     width: 5.5vmin;
     height: 6vmin;
     background: rgba(255,255,102,0.6);
-    border-radius: 0.2vmin 2vmin 2vmin 0.2vmin;
+    border-radius: 0.4vmin 2vmin 2vmin 0.4vmin;
 }
 [class="Total"] {
-    position: relative;
+    display: block;
     color: black;
     font-size: 2.2vmin;
     width: 36.6vmin;
-    bottom: 8vmin;
-    margin-left: 46vmin;
+    margin-left: 14vmin;
     padding: 2vmin;
     background: rgba(102,204,255,0.6);
     border-radius: 0vmin 0vmin 0vmin 4vmin;
 }
-[id="okBTN"] {
+[class="okBTN"] {
     position: absolute;
+    background-color: #2185d0;
+    color: #fff;
     text-align: center;
     float: right;
     right: 2vw;
     bottom: 2vh;
     font-size: 2.2vmin;
+    width: 12vw;
+    height: 5vh;
+    border-radius: 0.6vmin;
 }
-[id="cancelBTN"] {
+[class="cancelBTN"] {
     position: absolute;
+    background-color: #db2828;
+    color: #fff;
     text-align: center;
     float: left;
     left: 2vw;
     bottom: 2vh;
-    width: 20vmin;
     font-size: 2.2vmin;
+    width: 10vw;
+    height: 5vh;
+    border-radius: 0.6vmin;
 }
-// const content = {
-//     display: 'inline'
-// }
+@media (max-width: 768px){
+    [class="contentDT"] {
+        max-width: 80%;
+        max-height: 80%;
+        bottom: 8vh;
+        padding: 0;
+    }
+    [class="detailsArea"] {
+        margin-bottom: 4vh;
+    }
+    [class="Name"] {
+        text-align: center;
+        width: 100%;
+    }
+    [class="Tagline"] {
+        text-align: center;
+        width: 100%;
+    }
+    [class="Price"] {
+        text-align: center;
+        width: 100%;
+    }
+    [class="okBTN"] {
+        font-size: 2vmin;
+        width: 47%;
+        border-radius: 0vmin 2vmin 2vmin 0vmin;
+    }
+    [class="cancelBTN"] {
+        font-size: 2vmin;
+        width: 47%;
+        border-radius: 2vmin 0vmin 0vmin 2vmin;
+    }
+    [class="NumTicket"] {
+        width: 100%;
+        border-radius: 1vmin;
+        margin-top: 0.5vh;
+    }
+    [class="numText"]{
+        position: relative;
+        text-align: center;
+    }
+    [class="numInput"] {
+        justify-content: center;
+        left: 0;
+        top: -1.5vh;
+    }
+    [class="Total"] {
+        width: 100%;
+        margin-left: 0vmin;
+        border-radius: 1vmin;
+        text-align: center;
+    }
+    [class="minusBtn"] {
+        width: 8vw;
+        height: 6.5vmin;
+    }
+    [class="num"] {
+        width: 10vmin;
+        height: 6.5vmin;
+    }
+    [class="plusBtn"] {
+        width: 8vw;
+        height: 6.5vmin;
+    }
+}
