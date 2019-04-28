@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Header from '../../components/header.js'
 import '../../static/styles/paymentpage.scss'
 import 'semantic-ui-react'
 import { Icon } from 'semantic-ui-react'
+import Endprocesspage from './endprocesspage.js'
 
 var paid_forMailing = 0
 
@@ -114,12 +115,11 @@ class Paymentpage extends React.Component {
                         </button>
                         <button class="backBTN" onClick={this.props.onHide}>Back</button>
                     </div>
-                    {/* <EndProcessModal show={this.state.submit} bNc={this.state.bills_and_coins}
+                    <Endprocesspage show={this.state.submit} bNc={this.state.bills_and_coins}
                         totalChange={this.state.total_change} numC={this.state.num_coins}
                         numB={this.state.num_bills} bills={this.state.bills}
                         coins={this.state.coins}
-                    >
-                    </EndProcessModal> */}
+                    />
                 </div>
                 )}
             </React.Fragment>

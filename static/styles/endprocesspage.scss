@@ -1,0 +1,126 @@
+[class="backgroundEnd"] {
+    position: fixed;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    background: rgba(255,204,0,1);
+}
+[class="contentEnd"] {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-flow: wrap;
+    box-sizing: border-box;
+    width: 65vw;
+    height: 80vh;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.5vmin;
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 2vmin;
+}
+[class="thanks"] {
+    position: relative;
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+    font-size: 4.5vmin;
+    margin-top: 0vw;
+}
+[class="conclusion"] {
+    position: relative;
+    margin-top: 0vw;
+    bottom: 20vh;
+    width: 100%;
+    float: left;
+    left: 10vw;
+    display: block;
+    color: black;
+    font-size: 2.5vmin;
+}
+[class="conclusionImg"] {
+    position: relative;
+    display: block;
+    width: 15.5vmin;
+    height: 21vmin;
+    right: 8vmin;
+    top: 2vmin;
+}
+[class="imgSrc"] {
+    display: none;
+    visibility: hidden;
+    z-index: -1;
+}
+
+[class="bless"] {
+    position: relative;
+    margin-top: 0vw;
+    bottom: 18vh;
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+    font-size: 5vmin;
+}
+[class="exitBTN"] {
+    position: absolute;
+    text-align: center;
+    background-color: #db2828;
+    color: #fff;
+    font-size: 2vmin;
+    float: right;
+    right: 0;
+    top: -7vh;
+    width: 10vmin;
+    height: 8vh;
+    margin-top: 7vmin;
+    border-radius: 0.7vmin 2vmin 0.7vmin 3vmin;
+    animation: shadow-pulse 1s infinite;
+    overflow: hidden;
+}
+[class="MailingPart"] {
+    position: absolute;
+    display: block;
+    bottom: 16vh;
+    margin-left: 3.5vmin;
+    width: 70vmin;
+    background: grey;
+    padding: 2vmin;
+    border-radius: 2vmin;
+}
+[class="mailingtext"] {
+    color: white;
+}
+[class="getDetailBTN"] {
+    position: relative;
+    background-color: #109e50;
+    color: #fff;
+    margin-left: 2vmin;
+    bottom: 1.3vmin;
+    width: 15vmin;
+    height: 6vh;
+    border-radius: 0.7vmin;
+}
+
+@keyframes shadow-pulse
+{
+    0% {
+        box-shadow: 0 0 0 0vw rgba(0, 0, 0, 0.2);
+    }
+    100% {
+        box-shadow: 0 0 0 5vmin rgba(0, 0, 0, 0);
+    }
+}

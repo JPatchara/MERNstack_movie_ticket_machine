@@ -2,15 +2,14 @@ import React from 'react'
 import '../../static/styles/detailspage.scss'
 import Header from '../../components/header.js'
 import { Icon } from 'semantic-ui-react'
-import Router from 'next/router'
 import Paymentpage from './paymentpage.js'
 
-var movie_name_forMailing = ""
-var num_of_ticket_forMailing = 0
-var movie_price_forMailing = 0
-var total_price_forMailing = 0
-var paid_forMailing = 0
-var movie_image_forMailing = ""
+export var movie_name_forMailing = ""
+export var num_of_ticket_forMailing = 0
+export var movie_price_forMailing = 0
+export var total_price_forMailing = 0
+export var paid_forMailing = 0
+export var movie_image_forMailing = ""
 
 class Detailspage extends React.Component {
 
@@ -111,12 +110,6 @@ class Detailspage extends React.Component {
     }
 }
 
-const NameHeader = {
-    position: 'absolute',
-    left: '32vmin',
-    bottom: '34vmin',
-    fontSize: '3.2vmin'
-}
 const tagIcon = {
     marginRight: '2vmin'
 }

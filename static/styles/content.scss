@@ -120,6 +120,7 @@ span{
     top: 18vh;
     left: 4vw;
     border-radius: 1vmin;
+    animation: shadow-pulse 1s infinite;
 }
 [class="name"] {
     display: block;
@@ -179,5 +180,24 @@ span{
     [class="borderImage"]:before{
         left: -28%;
         width: 28%;
+    }
+}
+
+@keyframes shadow-pulse
+{
+    0% {
+        box-shadow: 0 0 0 0vw rgba(236, 223, 50, 0.795);
+    }
+    25% {
+        box-shadow: 0 0 0 0.25vw rgba(236, 109, 50, 0.795);
+    }
+    50% {
+        box-shadow: 0 0 0 0.5vw rgba(56, 236, 50, 0.795);
+    }
+    75% {
+        box-shadow: 0 0 0 0.75vw rgba(137, 50, 236, 0.795);
+    }
+    100% {
+        box-shadow: 0 0 0 1vmin rgba(42, 128, 241, 0.548);
     }
 }
