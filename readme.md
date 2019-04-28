@@ -4,12 +4,12 @@ MERN stack web application<br/>
 - E(ExpressJS)<br/>
 - R(ReactJS)<br/>
 - N(NodeJS)<br/>
-## Frontend <hr/>
+## Frontend
 ### Technology
 - Using NextJS of React framework
 - Using Sass for styling application
 - Using Semantic UI React for some instance elements
-## Backend <hr/>
+## Backend
 ### Technology
 - Using Framework/library from NodeJS
 - Using ExpressJS as server side controller
