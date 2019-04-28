@@ -1,4 +1,6 @@
-# Movie ticket machine
+# Movie ticket machine (MERN stack)
+![Image](https://i.imgur.com/P6fwRKQ.png)
+![Image](https://i.imgur.com/9RaXT0t.png)
 MERN stack web application<br/>
 - M(MongoDB)<br/>
 - E(ExpressJS)<br/>
@@ -28,4 +30,4 @@ MERN stack web application<br/>
     ```
     npm run dev
     ```
-    **the command set up at package.json file in scripts part, you can modify it your self as you wish. 
+    **the command set up at package.json file in scripts part, you can modify it your self as you wish.
