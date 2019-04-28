@@ -26,16 +26,6 @@ class Mainpage extends React.Component {
         })
     }
 
-    // moviesListing() {
-    //     if( this.state.selection === false) {
-    //         return this.state.movieData.map(function(object, i){
-    //             return <MovieContent obj={object} key={i}/>
-    //         })
-    //     } else {
-    //         this.onChangeName
-    //     }
-    // }
-
     onChangeName = (e, { value }) => {
         this.setState({ value: value })
         var selectionName = value
@@ -69,9 +59,21 @@ class Mainpage extends React.Component {
                 console.log(error);
             })
         } else if (selectionSortby  === 'Date & Time(Older)') {
-
+            this.unsubscribe = axios.get('http://localhost:3000/api/get/ASCDate')
+            .then(response => {
+                this.setState({ movieData: response.data })
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
         } else if (selectionSortby  === 'Date & Time(Newer)') {
-
+            this.unsubscribe = axios.get('http://localhost:3000/api/get/DESCDate')
+            .then(response => {
+                this.setState({ movieData: response.data })
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
         } else if (selectionSortby  === 'none') {
             this.unsubscribe = axios.get('http://localhost:3000/api/get/ASCName')
             .then(response => {

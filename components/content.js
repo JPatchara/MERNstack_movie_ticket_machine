@@ -36,7 +36,7 @@ class MovieContent extends React.Component {
                             </div>
                             <div className="priceNdate">
                                 <p ref="price">Price:&nbsp;&nbsp;&nbsp;&nbsp;{data.price}&nbsp;&nbsp;&nbsp;Baht</p>
-                                <p ref="date">Available on:&nbsp;&nbsp;{data.date}</p>
+                                <p ref="date">Available on:&nbsp;&nbsp;&nbsp;&nbsp;{data.time.substring(0, 10)}</p>
                             </div>
                         </div>
                         <div className="wrapBTN">

@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const moviesData = require('./moviesData.js')
+const moviesData = require('./dataSchema.js')
 const nodemailer = require('nodemailer')
 
 //----Get all movies----//
@@ -70,6 +70,18 @@ router.get('/get/ASCPrice', function(req, res, report) {
 //----Order by movies price(DESC)----//
 router.get('/get/DESCPrice', function(req, res, report) {
     moviesData.find().sort( { price: -1 } ).then(function(movies) {
+        res.send(movies)
+    }).catch(report)
+})
+//----Order by movies date(ASC)----//
+router.get('/get/ASCDate', function(req, res, report) {
+    moviesData.find().sort( { time: 1 } ).then(function(movies) {
+        res.send(movies)
+    }).catch(report)
+})
+//----Order by movies date(DESC)----//
+router.get('/get/DESCDate', function(req, res, report) {
+    moviesData.find().sort( { time: -1 } ).then(function(movies) {
         res.send(movies)
     }).catch(report)
 })
